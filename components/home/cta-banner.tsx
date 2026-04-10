@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { ArrowRight, Phone } from "lucide-react"
-import { Button } from "@/ui/button"
+import { ArrowRight, Phone } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/ui/button";
 
 export function CtaBanner() {
   return (
@@ -17,15 +17,15 @@ export function CtaBanner() {
                 Готовы начать сотрудничество?
               </h2>
               <p className="text-white/90 leading-relaxed">
-                Оставьте заявку, и наши специалисты свяжутся с вами в течение одного рабочего дня
-                для обсуждения условий договора.
+                Оставьте заявку, и наши специалисты свяжутся с вами в течение
+                одного рабочего дня для обсуждения условий договора.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-primary hover:bg-white/90 font-semibold"
+                className="bg-white text-primary hover:bg-white/90! font-semibold"
               >
                 <Link href="/contacts">
                   Оставить заявку
@@ -48,5 +48,5 @@ export function CtaBanner() {
         </div>
       </div>
     </section>
-  )
+  );
 }
