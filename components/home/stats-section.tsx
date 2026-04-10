@@ -1,23 +1,23 @@
-import { Pipe, Buildings, Clock, Certificate } from "@phosphor-icons/react/dist/ssr"
+import { Pipette, Building2, Clock, Award } from "lucide-react"
 
 const stats = [
   {
     value: "6 500+",
     label: "км газопроводов",
     description: "Общая протяжённость обслуживаемой газотранспортной системы",
-    icon: Pipe,
+    icon: Pipette,
   },
   {
     value: "30+",
     label: "лет опыта",
     description: "Работаем с предприятиями Беларуси с момента основания в 1994 году",
-    icon: Certificate,
+    icon: Award,
   },
   {
     value: "250+",
     label: "корпоративных клиентов",
     description: "Крупные промышленные предприятия, заводы и производства",
-    icon: Buildings,
+    icon: Building2,
   },
   {
     value: "99.9%",
@@ -37,7 +37,7 @@ export function StatsSection() {
             return (
               <div key={stat.value} className="text-center">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/8 mb-4">
-                  <Icon weight="duotone" className="w-6 h-6 text-primary" />
+                  <Icon className="w-6 h-6 text-primary" />
                 </div>
                 <div className="text-3xl md:text-4xl font-bold text-foreground mb-1">{stat.value}</div>
                 <div className="text-sm font-semibold text-primary mb-2">{stat.label}</div>

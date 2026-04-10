@@ -1,33 +1,35 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { useState, useEffect } from "react"
-import { List, X, FlameIcon } from "@phosphor-icons/react"
-import { Button } from "@/ui/button"
-import { cn } from "@/lib/utils"
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import logo from "public/images/logo.gif";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/ui/button";
 
 const navLinks = [
   { href: "/", label: "Главная" },
   { href: "/about", label: "О компании" },
   { href: "/services", label: "Услуги" },
   { href: "/contacts", label: "Контакты" },
-]
+];
 
 export function Header() {
-  const pathname = usePathname()
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 10)
-    window.addEventListener("scroll", handler)
-    return () => window.removeEventListener("scroll", handler)
-  }, [])
+    const handler = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
 
   useEffect(() => {
-    setMobileOpen(false)
-  }, [pathname])
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <header
@@ -35,20 +37,23 @@ export function Header() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
           ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-border"
-          : "bg-white/95 backdrop-blur-md"
+          : "bg-white/95 backdrop-blur-md",
       )}
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
-              <FlameIcon weight="fill" className="w-5 h-5 text-white" />
-            </div>
-            <div className="leading-tight">
-              <span className="block text-sm font-bold text-primary tracking-wide">ГТБ</span>
-              <span className="block text-[10px] text-muted-foreground leading-none">Трансгаз Беларусь</span>
-            </div>
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 shrink-0 pb-2 pt-1 h-full"
+          >
+            <Image
+              src={logo.src}
+              width={120}
+              height={64}
+              alt="logo"
+              className="h-full w-auto"
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -61,7 +66,7 @@ export function Header() {
                   "px-4 py-2 text-sm font-medium rounded-lg transition-colors",
                   pathname === link.href
                     ? "text-primary bg-primary/8"
-                    : "text-foreground/70 hover:text-foreground hover:bg-muted"
+                    : "text-foreground/70 hover:text-foreground hover:bg-muted",
                 )}
               >
                 {link.label}
@@ -80,9 +85,9 @@ export function Header() {
               aria-label="Меню"
             >
               {mobileOpen ? (
-                <X weight="bold" className="w-5 h-5" />
+                <X className="w-5 h-5" />
               ) : (
-                <List weight="bold" className="w-5 h-5" />
+                <Menu className="w-5 h-5" />
               )}
             </button>
           </div>
@@ -100,7 +105,7 @@ export function Header() {
                 "flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors",
                 pathname === link.href
                   ? "text-primary bg-primary/8"
-                  : "text-foreground/70 hover:text-foreground hover:bg-muted"
+                  : "text-foreground/70 hover:text-foreground hover:bg-muted",
               )}
             >
               {link.label}
@@ -114,5 +119,5 @@ export function Header() {
         </div>
       )}
     </header>
-  )
+  );
 }

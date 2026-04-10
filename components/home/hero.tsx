@@ -1,6 +1,7 @@
-import Link from "next/link"
-import { ArrowRight, CheckCircle } from "@phosphor-icons/react/dist/ssr"
-import { Button } from "@/ui/button"
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/ui/button";
+import { ThreeCanvas } from "./three-canvas";
 
 export function Hero() {
   return (
@@ -17,8 +18,21 @@ export function Hero() {
         />
       </div>
 
+      {/* 3D Model Container - Right side */}
+      <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block pointer-events-none">
+        <div className="w-full h-full pointer-events-auto">
+          <ThreeCanvas
+            modelPath="/6b7f708d89270dad0e683a3eb7c7624f.obj"
+            materialPath="/material.mtl"
+            texturePath="/material.png"
+            autoRotate
+            rotateOnMouseMove
+          />
+        </div>
+      </div>
+
       <div className="relative container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl py-20">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl lg:max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/90 text-xs font-medium mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[oklch(0.72_0.14_255)] animate-pulse" />
             Надёжный партнёр с 1994 года
@@ -27,20 +41,23 @@ export function Hero() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-6">
             Газовые услуги
             <br />
-            <span className="text-[oklch(0.72_0.14_255)]">для вашего бизнеса</span>
+            <span className="text-[oklch(0.72_0.14_255)]">
+              для вашего бизнеса
+            </span>
           </h1>
 
           <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl">
-            ООО «Газпром трансгаз Беларусь» обеспечивает бесперебойную транспортировку,
-            распределение и техническое обслуживание газовой инфраструктуры для корпоративных клиентов
-            по всей территории Республики Беларусь.
+            ООО «Газпром трансгаз Беларусь» обеспечивает бесперебойную
+            транспортировку, распределение и техническое обслуживание газовой
+            инфраструктуры для корпоративных клиентов по всей территории
+            Республики Беларусь.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Button asChild size="lg" className="text-base">
               <Link href="/contacts">
                 Оставить заявку
-                <ArrowRight weight="bold" className="ml-2 w-4 h-4" />
+                <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
             <Button
@@ -59,8 +76,11 @@ export function Hero() {
               "Круглосуточная диспетчерская служба",
               "Собственная аварийная служба",
             ].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-white/75 text-sm">
-                <CheckCircle weight="fill" className="w-4 h-4 text-[oklch(0.72_0.14_255)] shrink-0" />
+              <div
+                key={item}
+                className="flex items-center gap-2 text-white/75 text-sm"
+              >
+                <CheckCircle2 className="w-4 h-4 text-[oklch(0.72_0.14_255)] shrink-0" />
                 {item}
               </div>
             ))}
@@ -68,5 +88,5 @@ export function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

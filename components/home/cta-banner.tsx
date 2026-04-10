@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, Phone } from "@phosphor-icons/react/dist/ssr"
+import { ArrowRight, Phone } from "lucide-react"
 import { Button } from "@/ui/button"
 
 export function CtaBanner() {
@@ -29,7 +29,7 @@ export function CtaBanner() {
               >
                 <Link href="/contacts">
                   Оставить заявку
-                  <ArrowRight weight="bold" className="ml-2 w-4 h-4" />
+                  <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
               <Button
@@ -39,7 +39,7 @@ export function CtaBanner() {
                 className="border-white/30 text-white bg-white/5 hover:bg-white/15 hover:text-white"
               >
                 <a href="tel:+375172060000">
-                  <Phone weight="fill" className="mr-2 w-4 h-4" />
+                  <Phone className="mr-2 w-4 h-4" />
                   Позвонить
                 </a>
               </Button>

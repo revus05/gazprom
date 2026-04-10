@@ -1,10 +1,10 @@
 import Link from "next/link"
-import { ArrowRight, Pipe, Wrench, ChartBar, Gauge } from "@phosphor-icons/react/dist/ssr"
+import { ArrowRight, Pipette, Wrench, BarChart3, Gauge } from "lucide-react"
 import { Button } from "@/ui/button"
 
 const featuredServices = [
   {
-    icon: Pipe,
+    icon: Pipette,
     title: "Транспортировка природного газа",
     description:
       "Обеспечиваем надёжную и бесперебойную транспортировку природного газа по разветвлённой сети магистральных и распределительных газопроводов.",
@@ -18,7 +18,7 @@ const featuredServices = [
     tags: ["Плановое ТО", "Ремонт", "Диагностика"],
   },
   {
-    icon: ChartBar,
+    icon: BarChart3,
     title: "Коммерческий учёт газа",
     description:
       "Установка, калибровка и обслуживание узлов коммерческого учёта газа. Обеспечение точности измерений в соответствии с требованиями законодательства.",
@@ -47,7 +47,7 @@ export function ServicesPreview() {
           <Button asChild variant="outline">
             <Link href="/services">
               Все услуги
-              <ArrowRight weight="bold" className="ml-2 w-4 h-4" />
+              <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </Button>
         </div>
@@ -62,7 +62,7 @@ export function ServicesPreview() {
               >
                 <div className="flex items-start gap-5">
                   <div className="shrink-0 w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                    <Icon weight="duotone" className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
+                    <Icon className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="text-lg font-semibold text-foreground mb-2">{service.title}</h3>

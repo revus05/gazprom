@@ -1,22 +1,22 @@
 import {
-  Pipe,
+  Pipette,
   Wrench,
   GitFork,
-  ChartBar,
+  BarChart3,
   Gauge,
-  FirstAid,
-  Blueprint,
-  MagnifyingGlass,
-  CheckCircle,
+  HeartHandshake,
+  Layers2,
+  Search,
+  CheckCircle2,
   ArrowRight,
-} from "@phosphor-icons/react/dist/ssr"
+} from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/ui/button"
 import { CtaBanner } from "@/components/home/cta-banner"
 
 const services = [
   {
-    icon: Pipe,
+    icon: Pipette,
     title: "Транспортировка природного газа",
     description:
       "Обеспечиваем надёжную и бесперебойную транспортировку природного газа по разветвлённой сети магистральных и межсистемных газопроводов на всей территории Республики Беларусь.",
@@ -52,7 +52,7 @@ const services = [
     ],
   },
   {
-    icon: ChartBar,
+    icon: BarChart3,
     title: "Коммерческий учёт газа",
     description:
       "Установка, поверка и эксплуатационное обслуживание узлов коммерческого учёта газа. Обеспечение метрологической точности в соответствии с требованиями законодательства Республики Беларусь.",
@@ -76,7 +76,7 @@ const services = [
     ],
   },
   {
-    icon: FirstAid,
+    icon: HeartHandshake,
     title: "Аварийно-диспетчерское обеспечение",
     description:
       "Круглосуточная аварийно-диспетчерская служба для оперативного реагирования на нештатные ситуации на газотранспортных объектах и объектах потребителей.",
@@ -88,7 +88,7 @@ const services = [
     ],
   },
   {
-    icon: Blueprint,
+    icon: Layers2,
     title: "Проектирование и строительство",
     description:
       "Разработка проектной документации и строительство объектов газовой инфраструктуры под ключ: от технического задания до ввода объекта в эксплуатацию.",
@@ -100,7 +100,7 @@ const services = [
     ],
   },
   {
-    icon: MagnifyingGlass,
+    icon: Search,
     title: "Экспертиза и диагностика",
     description:
       "Техническая диагностика и экспертиза промышленной безопасности объектов газоснабжения, продление ресурса оборудования и газопроводов, дефектоскопия.",
@@ -152,7 +152,6 @@ export default function ServicesPage() {
                   <div className="flex items-start gap-5 mb-5">
                     <div className="shrink-0 w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
                       <Icon
-                        weight="duotone"
                         className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300"
                       />
                     </div>
@@ -162,7 +161,7 @@ export default function ServicesPage() {
                   <ul className="space-y-2">
                     {service.includes.map((item) => (
                       <li key={item} className="flex items-start gap-2">
-                        <CheckCircle weight="fill" className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                         <span className="text-sm text-foreground/75">{item}</span>
                       </li>
                     ))}
@@ -211,7 +210,7 @@ export default function ServicesPage() {
           <Button asChild size="lg">
             <Link href="/contacts">
               Оставить заявку
-              <ArrowRight weight="bold" className="ml-2 w-4 h-4" />
+              <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </Button>
         </div>

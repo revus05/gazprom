@@ -1,25 +1,25 @@
 import Link from "next/link"
-import { ArrowRight, ShieldCheck, UsersFour, Scales, HandshakeIcon } from "@phosphor-icons/react/dist/ssr"
+import { ArrowRight, Shield, Users, Scale, Handshake } from "lucide-react"
 import { Button } from "@/ui/button"
 
 const advantages = [
   {
-    icon: ShieldCheck,
+    icon: Shield,
     title: "Надёжность и безопасность",
     desc: "Соответствие всем нормам промышленной безопасности РБ",
   },
   {
-    icon: UsersFour,
+    icon: Users,
     title: "Профессиональная команда",
     desc: "Более 3 000 квалифицированных специалистов",
   },
   {
-    icon: Scales,
+    icon: Scale,
     title: "Юридическая чистота",
     desc: "Все работы выполняются по договорам с полным пакетом документов",
   },
   {
-    icon: HandshakeIcon,
+    icon: Handshake,
     title: "Долгосрочное партнёрство",
     desc: "Индивидуальные условия сотрудничества для каждого клиента",
   },
@@ -48,7 +48,7 @@ export function AboutTeaser() {
             <Button asChild>
               <Link href="/about">
                 Подробнее о компании
-                <ArrowRight weight="bold" className="ml-2 w-4 h-4" />
+                <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
           </div>
@@ -63,7 +63,7 @@ export function AboutTeaser() {
                   className="p-5 rounded-xl border border-border bg-muted/20 hover:border-primary/30 hover:bg-primary/3 transition-colors"
                 >
                   <div className="w-10 h-10 rounded-lg bg-primary/8 flex items-center justify-center mb-3">
-                    <Icon weight="duotone" className="w-5 h-5 text-primary" />
+                    <Icon className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
