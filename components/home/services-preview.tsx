@@ -35,23 +35,34 @@ const featuredServices = [
 
 export function ServicesPreview() {
   return (
-    <section className="py-16 md:py-24 bg-muted/30">
+    <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">Что мы предлагаем</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               Ключевые услуги
             </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+              Мы предоставляем комплексный спектр услуг для безопасной и эффективной эксплуатации газовой инфраструктуры. Наша команда специалистов работает 24/7 для обеспечения надёжности.
+            </p>
+            <Button asChild>
+              <Link href="/services">
+                Все услуги
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
           </div>
-          <Button asChild variant="outline">
-            <Link href="/services">
-              Все услуги
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
-          </Button>
+          <div className="rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80"
+              alt="Диспетчерский центр управления газовой инфраструктурой"
+              className="w-full h-auto object-cover"
+            />
+          </div>
         </div>
 
+        <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Основные направления деятельности</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {featuredServices.map((service) => {
             const Icon = service.icon

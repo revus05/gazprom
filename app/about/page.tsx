@@ -82,8 +82,14 @@ export default function AboutPage() {
     <>
       {/* Page Hero */}
       <section className="bg-[oklch(0.15_0.04_255)] py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/15 blur-3xl -translate-y-1/2 translate-x-1/3" />
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          />
         </div>
         <div className="relative container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           <p className="text-[oklch(0.72_0.14_255)] font-semibold text-sm uppercase tracking-wider mb-3">
@@ -235,13 +241,25 @@ export default function AboutPage() {
       {/* Infrastructure */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-12">
-            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
-              Масштаб операций
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Наша инфраструктура
-            </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+            <div>
+              <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
+                Масштаб операций
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                Наша инфраструктура
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                Мы управляем одной из крупнейших сетей газопроводов в Европе, обеспечивая надёжное газоснабжение промышленных предприятий и объектов энергетики.
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <img
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+                alt="Газопровод и трубопроводная система"
+                className="w-full h-auto object-cover"
+              />
+            </div>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {infra.map((item) => {

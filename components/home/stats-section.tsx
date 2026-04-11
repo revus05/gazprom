@@ -31,6 +31,13 @@ export function StatsSection() {
   return (
     <section className="py-16 md:py-20 bg-white border-b border-border">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+        <div className="mb-12 rounded-2xl overflow-hidden shadow-lg max-h-[300px]">
+          <img
+            src="https://images.unsplash.com/photo-1581092645562-40038f56f925?w=1200&q=80"
+            alt="Газопровод и трубопроводная система"
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat) => {
             const Icon = stat.icon

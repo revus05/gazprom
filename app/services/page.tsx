@@ -141,8 +141,14 @@ export default function ServicesPage() {
     <>
       {/* Page Hero */}
       <section className="bg-[oklch(0.15_0.04_255)] py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/15 blur-3xl -translate-y-1/2 translate-x-1/3" />
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          />
         </div>
         <div className="relative container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           <p className="text-[oklch(0.72_0.14_255)] font-semibold text-sm uppercase tracking-wider mb-3">
@@ -160,8 +166,46 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <img
+                src="https://img.belta.by/images/storage/news/with_archive/2023/000022_1700041389_599654_big.jpg"
+                alt="Промышленное газовое оборудование"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <div>
+              <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
+                Что мы предлагаем
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                Полный спектр услуг
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                От транспортировки природного газа до технического обслуживания
+                сложного оборудования. Мы обеспечиваем комплексные решения для
+                безопасной и эффективной эксплуатации газовой инфраструктуры
+                вашего предприятия.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  "Лицензированная деятельность",
+                  "Опытные специалисты",
+                  "Современное оборудование",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-foreground font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
+            Наши основные услуги
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service) => {
               const Icon = service.icon;
