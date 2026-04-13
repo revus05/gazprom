@@ -2,12 +2,16 @@
 
 import { buildEmailHtml, createTransporter } from "@/lib/email";
 import { contactFormSchema } from "@/lib/schemas/contact-form";
+import { addSubmission } from "@/lib/submissions";
 
 export async function sendContactEmail(data: unknown) {
   const parsed = contactFormSchema.safeParse(data);
   if (!parsed.success) {
     return { success: false, error: "Проверьте правильность заполнения формы" };
   }
+
+  // Всегда сохраняем заявку — независимо от результата отправки письма
+  addSubmission(parsed.data);
 
   try {
     const transporter = createTransporter();
@@ -17,8 +21,9 @@ export async function sendContactEmail(data: unknown) {
       subject: `Новое обращение: ${parsed.data.organizationName}`,
       html: buildEmailHtml(parsed.data),
     });
-    return { success: true };
   } catch {
-    return { success: false, error: "Ошибка отправки. Попробуйте позже." };
+    // Письмо не отправилось, но заявка уже сохранена
   }
+
+  return { success: true };
 }

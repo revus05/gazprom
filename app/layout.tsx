@@ -2,8 +2,6 @@ import { Geist_Mono, Roboto, Noto_Sans } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
 import { Toaster } from "@/ui/sonner"
 import { cn } from "@/lib/utils"
 
@@ -41,9 +39,7 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>
-          <Header />
-          <main className="pt-16 md:pt-18">{children}</main>
-          <Footer />
+          {children}
           <Toaster richColors position="top-right" />
         </ThemeProvider>
       </body>
