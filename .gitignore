@@ -44,4 +44,3 @@ next-env.d.ts
 
 # admin submissions data
 /data
-/public/uploads
