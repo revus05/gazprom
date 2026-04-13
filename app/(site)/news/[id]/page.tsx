@@ -2,22 +2,19 @@ import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, Calendar } from "lucide-react"
-import { getNewsById, readNews } from "@/lib/news"
+import { getNewsById } from "@/lib/news"
 import { CtaBanner } from "@/components/home/cta-banner"
+
+// Новости создаются динамически — рендеринг всегда на сервере
+export const dynamic = "force-dynamic"
 
 interface Props {
   params: Promise<{ id: string }>
 }
 
-export async function generateStaticParams() {
-  return readNews()
-    .filter((n) => n.published)
-    .map((n) => ({ id: String(n.id) }))
-}
-
 export async function generateMetadata({ params }: Props) {
   const { id } = await params
-  const news = getNewsById(Number(id))
+  const news = await getNewsById(Number(id))
   if (!news || !news.published) return {}
   return {
     title: `${news.title} — Газпром трансгаз Беларусь`,
@@ -27,7 +24,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function NewsDetailPage({ params }: Props) {
   const { id } = await params
-  const news = getNewsById(Number(id))
+  const news = await getNewsById(Number(id))
 
   if (!news || !news.published) notFound()
 

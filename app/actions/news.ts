@@ -28,7 +28,7 @@ export async function createNewsAction(
   if (!title) return { error: "Введите заголовок" }
   if (!content) return { error: "Введите текст новости" }
 
-  createNewsItem({ title, content, coverImage, published })
+  await createNewsItem({ title, content, coverImage, published })
   redirect("/admin/news")
 }
 
@@ -47,13 +47,13 @@ export async function updateNewsAction(
   if (!title) return { error: "Введите заголовок" }
   if (!content) return { error: "Введите текст новости" }
 
-  updateNewsItem(id, { title, content, coverImage, published })
+  await updateNewsItem(id, { title, content, coverImage, published })
   redirect("/admin/news")
 }
 
 export async function deleteNewsAction(formData: FormData) {
   await checkAuth()
   const id = Number(formData.get("id"))
-  if (id) deleteNewsItem(id)
+  if (id) await deleteNewsItem(id)
   redirect("/admin/news")
 }

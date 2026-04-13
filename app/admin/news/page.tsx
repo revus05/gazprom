@@ -16,7 +16,7 @@ export default async function AdminNewsPage() {
   const session = await verifySessionToken(token)
   if (!session) redirect("/admin/login")
 
-  const news = readNews()
+  const news = await readNews()
 
   return (
     <AdminShell username={session.username} title="Новости">

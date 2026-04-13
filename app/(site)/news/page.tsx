@@ -6,6 +6,8 @@ import { CtaBanner } from "@/components/home/cta-banner"
 import { NewsFilters } from "@/components/news/news-filters"
 import { Suspense } from "react"
 
+export const dynamic = "force-dynamic"
+
 export const metadata = {
   title: "Новости — Газпром трансгаз Беларусь",
   description:
@@ -23,7 +25,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
 
   const query = q.trim().toLowerCase()
 
-  const allNews = readNews()
+  const allNews = (await readNews())
     .filter((n) => n.published)
     .filter((n) => {
       if (!query) return true

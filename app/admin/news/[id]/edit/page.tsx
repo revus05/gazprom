@@ -18,7 +18,7 @@ export default async function EditNewsPage({ params }: Props) {
   if (!session) redirect("/admin/login")
 
   const { id } = await params
-  const news = getNewsById(Number(id))
+  const news = await getNewsById(Number(id))
   if (!news) notFound()
 
   const boundAction = updateNewsAction.bind(null, news.id)
