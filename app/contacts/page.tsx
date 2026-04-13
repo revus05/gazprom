@@ -30,20 +30,33 @@ export default function ContactsPage() {
   return (
     <>
       {/* Page Hero */}
-      <section className="bg-[oklch(0.15_0.04_255)] py-20 md:py-28 relative overflow-hidden">
+      <section
+        className="py-20 md:py-28 relative overflow-hidden"
+        style={{
+          backgroundImage:
+            "url('https://plus.unsplash.com/premium_photo-1664300121717-903f7c18decc?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-[oklch(0.12_0.04_255)]/88" />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/15 blur-3xl -translate-y-1/2 translate-x-1/3" />
+          <div className="absolute top-0 right-0 size-125 rounded-full bg-yellow/8 blur-3xl -translate-y-1/2 translate-x-1/3" />
           <div
-            className="absolute inset-0 opacity-[0.03]"
+            className="absolute inset-0 opacity-[0.04]"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             }}
           />
         </div>
         <div className="relative container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <p className="text-[oklch(0.72_0.14_255)] font-semibold text-sm uppercase tracking-wider mb-3">
-            Связаться с нами
-          </p>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-8 h-0.5 bg-yellow rounded-full" />
+            <p className="text-yellow font-semibold text-sm uppercase tracking-wider">
+              Связаться с нами
+            </p>
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Контакты
           </h1>
@@ -98,9 +111,12 @@ export default function ContactsPage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
-                Форма обратной связи
-              </p>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-6 h-0.5 bg-yellow rounded-full" />
+                <p className="text-yellow-dark font-semibold text-sm uppercase tracking-wider">
+                  Форма обратной связи
+                </p>
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
                 Оставить заявку
               </h2>

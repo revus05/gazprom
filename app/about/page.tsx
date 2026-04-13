@@ -81,20 +81,33 @@ export default function AboutPage() {
   return (
     <>
       {/* Page Hero */}
-      <section className="bg-[oklch(0.15_0.04_255)] py-20 md:py-28 relative overflow-hidden">
+      <section
+        className="py-20 md:py-28 relative overflow-hidden"
+        style={{
+          backgroundImage:
+            "url('https://plus.unsplash.com/premium_photo-1661964136447-676beb97b303?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-[oklch(0.12_0.04_255)]/88" />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/15 blur-3xl -translate-y-1/2 translate-x-1/3" />
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-yellow/10 blur-3xl -translate-y-1/2 translate-x-1/3" />
           <div
-            className="absolute inset-0 opacity-[0.03]"
+            className="absolute inset-0 opacity-[0.04]"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             }}
           />
         </div>
         <div className="relative container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <p className="text-[oklch(0.72_0.14_255)] font-semibold text-sm uppercase tracking-wider mb-3">
-            О компании
-          </p>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-8 h-0.5 bg-yellow rounded-full" />
+            <p className="text-yellow font-semibold text-sm uppercase tracking-wider">
+              О компании
+            </p>
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Газпром трансгаз Беларусь
           </h1>
@@ -190,9 +203,13 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           <div className="text-center mb-12">
-            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
-              С 1994 по сегодня
-            </p>
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="w-8 h-0.5 bg-yellow rounded-full" />
+              <p className="text-yellow-dark font-semibold text-sm uppercase tracking-wider">
+                С 1994 по сегодня
+              </p>
+              <span className="w-8 h-0.5 bg-yellow rounded-full" />
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
               История компании
             </h2>
@@ -211,13 +228,13 @@ export default function AboutPage() {
                   }`}
                 >
                   {/* Dot */}
-                  <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-primary border-2 border-white shadow-sm md:-translate-x-1.5 translate-y-1.5" />
+                  <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-yellow border-2 border-white shadow-sm md:-translate-x-1.5 translate-y-1.5" />
 
                   {/* Year badge (desktop: alternating side) */}
                   <div
                     className={`pl-10 md:pl-0 md:w-1/2 ${i % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12"}`}
                   >
-                    <span className="inline-block px-3 py-1 rounded-full bg-primary text-white text-sm font-bold mb-2">
+                    <span className="inline-block px-3 py-1 rounded-full bg-yellow text-yellow-foreground text-sm font-bold mb-2">
                       {item.year}
                     </span>
                     <h3 className="text-lg font-semibold text-foreground mb-1">
@@ -243,19 +260,24 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
             <div>
-              <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
-                Масштаб операций
-              </p>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-6 h-0.5 bg-yellow rounded-full" />
+                <p className="text-yellow-dark font-semibold text-sm uppercase tracking-wider">
+                  Масштаб операций
+                </p>
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
                 Наша инфраструктура
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Мы управляем одной из крупнейших сетей газопроводов в Европе, обеспечивая надёжное газоснабжение промышленных предприятий и объектов энергетики.
+                Мы управляем одной из крупнейших сетей газопроводов в Европе,
+                обеспечивая надёжное газоснабжение промышленных предприятий и
+                объектов энергетики.
               </p>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-lg">
+            <div className="rounded-2xl overflow-hidden shadow-lg ring-2 ring-yellow/30">
               <img
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80"
                 alt="Газопровод и трубопроводная система"
                 className="w-full h-auto object-cover"
               />
@@ -289,9 +311,13 @@ export default function AboutPage() {
       <section className="py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           <div className="text-center mb-12">
-            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
-              Документы
-            </p>
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="w-8 h-0.5 bg-yellow rounded-full" />
+              <p className="text-yellow-dark font-semibold text-sm uppercase tracking-wider">
+                Документы
+              </p>
+              <span className="w-8 h-0.5 bg-yellow rounded-full" />
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
               Лицензии и сертификаты
             </h2>

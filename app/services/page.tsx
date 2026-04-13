@@ -1,5 +1,4 @@
 import {
-  ArrowRight,
   BarChart3,
   CheckCircle2,
   Gauge,
@@ -10,9 +9,7 @@ import {
   Search,
   Wrench,
 } from "lucide-react";
-import Link from "next/link";
 import { CtaBanner } from "@/components/home/cta-banner";
-import { Button } from "@/ui/button";
 
 const services = [
   {
@@ -140,20 +137,33 @@ export default function ServicesPage() {
   return (
     <>
       {/* Page Hero */}
-      <section className="bg-[oklch(0.15_0.04_255)] py-20 md:py-28 relative overflow-hidden">
+      <section
+        className="py-20 md:py-28 relative overflow-hidden"
+        style={{
+          backgroundImage:
+            "url('https://plus.unsplash.com/premium_photo-1661964131234-fda88ca041c5?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-[oklch(0.12_0.04_255)]/88" />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/15 blur-3xl -translate-y-1/2 translate-x-1/3" />
+          <div className="absolute top-0 right-0 size-125 rounded-full bg-yellow/8 blur-3xl -translate-y-1/2 translate-x-1/3" />
           <div
-            className="absolute inset-0 opacity-[0.03]"
+            className="absolute inset-0 opacity-[0.04]"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             }}
           />
         </div>
         <div className="relative container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-          <p className="text-[oklch(0.72_0.14_255)] font-semibold text-sm uppercase tracking-wider mb-3">
-            Что мы предлагаем
-          </p>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-8 h-0.5 bg-yellow rounded-full" />
+            <p className="text-yellow font-semibold text-sm uppercase tracking-wider">
+              Что мы предлагаем
+            </p>
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Наши услуги
           </h1>
@@ -177,9 +187,12 @@ export default function ServicesPage() {
               />
             </div>
             <div>
-              <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
-                Что мы предлагаем
-              </p>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-6 h-0.5 bg-yellow rounded-full" />
+                <p className="text-yellow-dark font-semibold text-sm uppercase tracking-wider">
+                  Что мы предлагаем
+                </p>
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
                 Полный спектр услуг
               </h2>
@@ -228,7 +241,7 @@ export default function ServicesPage() {
                   <ul className="space-y-2">
                     {service.includes.map((item) => (
                       <li key={item} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-yellow-dark mt-0.5 shrink-0" />
                         <span className="text-sm text-foreground/75">
                           {item}
                         </span>
@@ -246,9 +259,13 @@ export default function ServicesPage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           <div className="text-center mb-12">
-            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
-              Как мы работаем
-            </p>
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="w-8 h-0.5 bg-yellow rounded-full" />
+              <p className="text-yellow-dark font-semibold text-sm uppercase tracking-wider">
+                Как мы работаем
+              </p>
+              <span className="w-8 h-0.5 bg-yellow rounded-full" />
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
               Порядок сотрудничества
             </h2>
@@ -256,9 +273,9 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((step) => (
               <div key={step.step} className="relative">
-                <div className="hidden lg:block absolute top-6 left-0 w-full h-px bg-border -z-0" />
+                <div className="hidden lg:block absolute top-6 left-0 w-full h-px bg-border z-0" />
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-sm mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-yellow flex items-center justify-center text-yellow-foreground font-bold text-sm mb-4">
                     {step.step}
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">
@@ -273,26 +290,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
-      {/* Consultation CTA */}
-      <section className="py-12 bg-muted/30 border-y border-border">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-            Нужна консультация?
-          </h2>
-          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-            Наши специалисты помогут подобрать оптимальный пакет услуг под
-            потребности вашего предприятия.
-          </p>
-          <Button asChild size="lg">
-            <Link href="/contacts">
-              Оставить заявку
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
-          </Button>
-        </div>
-      </section>
-
       <CtaBanner />
     </>
   );

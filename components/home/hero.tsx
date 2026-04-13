@@ -33,17 +33,15 @@ export function Hero() {
 
       <div className="relative container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl py-20">
         <div className="max-w-3xl lg:max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/90 text-xs font-medium mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[oklch(0.72_0.14_255)] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow/10 border border-yellow/30 text-yellow text-xs font-medium mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-yellow animate-pulse" />
             Надёжный партнёр с 1994 года
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-6">
             Газовые услуги
             <br />
-            <span className="text-[oklch(0.72_0.14_255)]">
-              для вашего бизнеса
-            </span>
+            <span className="text-yellow">для вашего бизнеса</span>
           </h1>
 
           <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl">
@@ -80,7 +78,7 @@ export function Hero() {
                 key={item}
                 className="flex items-center gap-2 text-white/75 text-sm"
               >
-                <CheckCircle2 className="w-4 h-4 text-[oklch(0.72_0.14_255)] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-yellow shrink-0" />
                 {item}
               </div>
             ))}

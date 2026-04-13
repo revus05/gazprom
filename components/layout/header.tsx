@@ -57,13 +57,13 @@ export function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "px-4 py-2 text-sm font-medium rounded-lg transition-colors",
+                  "px-4 py-2 text-base font-medium rounded-lg transition-colors",
                   pathname === link.href
                     ? "text-primary bg-primary/8"
                     : "text-foreground/70 hover:text-foreground hover:bg-muted",
@@ -79,7 +79,7 @@ export function Header() {
             <Button asChild size="sm" className="hidden md:inline-flex">
               <Link href="/contacts">Оставить заявку</Link>
             </Button>
-            <button
+            <Button
               className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Меню"
@@ -89,7 +89,7 @@ export function Header() {
               ) : (
                 <Menu className="w-5 h-5" />
               )}
-            </button>
+            </Button>
           </div>
         </div>
       </div>

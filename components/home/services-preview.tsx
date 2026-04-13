@@ -39,7 +39,10 @@ export function ServicesPreview() {
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">Что мы предлагаем</p>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="w-6 h-0.5 bg-yellow rounded-full" />
+              <p className="text-yellow-dark font-semibold text-sm uppercase tracking-wider">Что мы предлагаем</p>
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               Ключевые услуги
             </h2>
@@ -82,7 +85,7 @@ export function ServicesPreview() {
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2.5 py-0.5 rounded-full bg-primary/8 text-primary text-xs font-medium"
+                          className="px-2.5 py-0.5 rounded-full bg-yellow/15 text-yellow-dark text-xs font-semibold border border-yellow/20"
                         >
                           {tag}
                         </span>

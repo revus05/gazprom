@@ -32,9 +32,12 @@ export function AboutTeaser() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left */}
           <div>
-            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
-              О компании
-            </p>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="w-6 h-0.5 bg-yellow rounded-full" />
+              <p className="text-yellow-dark font-semibold text-sm uppercase tracking-wider">
+                О компании
+              </p>
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               Три десятилетия на страже газоснабжения Беларуси
             </h2>
