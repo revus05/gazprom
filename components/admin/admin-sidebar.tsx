@@ -1,37 +1,36 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { LayoutDashboard, FileText, LogOut } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { logoutAction } from "@/app/actions/admin-auth"
+import { FileText, LayoutDashboard, Newspaper } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import logo from "@/public/images/logo.gif";
+import { LogoutButton } from "./logout-button";
 
 const NAV_ITEMS = [
   { icon: LayoutDashboard, label: "Дашборд", href: "/admin" },
   { icon: FileText, label: "Заявки", href: "/admin/submissions" },
-]
+  { icon: Newspaper, label: "Новости", href: "/admin/news" },
+];
 
 interface AdminSidebarProps {
-  username: string
+  username: string;
 }
 
 export function AdminSidebar({ username }: AdminSidebarProps) {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <aside className="hidden md:flex w-64 flex-col border-r bg-card">
       {/* Логотип */}
-      <div className="flex h-16 items-center gap-2 border-b px-6">
-        <div className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-bold shrink-0">
-          G
-        </div>
-        <span className="font-semibold text-sm leading-tight">
-          Газпром
-          <br />
-          <span className="text-muted-foreground font-normal">
-            Панель управления
-          </span>
-        </span>
+      <div className="flex h-16 gap-2 border-b p-2">
+        <Image
+          src={logo.src}
+          width={120}
+          height={64}
+          alt="logo"
+          className="h-full w-auto"
+        />
       </div>
 
       {/* Навигация */}
@@ -40,7 +39,7 @@ export function AdminSidebar({ username }: AdminSidebarProps) {
           const active =
             href === "/admin"
               ? pathname === "/admin"
-              : pathname.startsWith(href)
+              : pathname.startsWith(href);
           return (
             <Link
               key={href}
@@ -54,7 +53,7 @@ export function AdminSidebar({ username }: AdminSidebarProps) {
               <Icon className="size-4 shrink-0" />
               {label}
             </Link>
-          )
+          );
         })}
       </nav>
 
@@ -63,17 +62,8 @@ export function AdminSidebar({ username }: AdminSidebarProps) {
         <p className="px-3 py-1 text-xs text-muted-foreground truncate">
           {username}
         </p>
-        <form action={logoutAction}>
-          <Button
-            variant="ghost"
-            type="submit"
-            className="w-full justify-start gap-3 text-muted-foreground hover:text-destructive"
-          >
-            <LogOut className="size-4" />
-            Выйти
-          </Button>
-        </form>
+        <LogoutButton variant="full" />
       </div>
     </aside>
-  )
+  );
 }

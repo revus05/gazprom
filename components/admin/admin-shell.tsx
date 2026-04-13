@@ -1,7 +1,5 @@
-import { LogOut } from "lucide-react";
-import { logoutAction } from "@/app/actions/admin-auth";
-import { Button } from "@/components/ui/button";
 import { AdminSidebar } from "./admin-sidebar";
+import { LogoutButton } from "./logout-button";
 
 interface AdminShellProps {
   username: string;
@@ -18,11 +16,9 @@ export function AdminShell({ username, title, children }: AdminShellProps) {
         {/* Топбар */}
         <header className="flex h-16 items-center justify-between border-b bg-card px-6 shrink-0">
           <h1 className="text-lg font-semibold">{title}</h1>
-          <form action={logoutAction} className="md:hidden">
-            <Button variant="ghost" size="icon" type="submit" title="Выйти">
-              <LogOut className="size-4" />
-            </Button>
-          </form>
+          <div className="md:hidden">
+            <LogoutButton variant="icon" />
+          </div>
         </header>
 
         {/* Контент */}
