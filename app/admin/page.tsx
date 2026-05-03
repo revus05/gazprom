@@ -15,7 +15,7 @@ export default async function AdminPage() {
   const session = await verifySessionToken(token)
   if (!session) redirect("/admin/login")
 
-  const submissions = readSubmissions()
+  const submissions = await readSubmissions()
 
   const stats = {
     total: submissions.length,

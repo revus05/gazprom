@@ -10,8 +10,8 @@ export async function sendContactEmail(data: unknown) {
     return { success: false, error: "Проверьте правильность заполнения формы" };
   }
 
-  // Всегда сохраняем заявку — независимо от результата отправки письма
-  addSubmission(parsed.data);
+  // Сохраняем заявку в базу данных
+  await addSubmission(parsed.data);
 
   try {
     const transporter = createTransporter();

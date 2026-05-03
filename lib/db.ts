@@ -28,5 +28,20 @@ export async function ensureTable() {
       updated_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
     )
   `
+  await sql`
+    CREATE TABLE IF NOT EXISTS submissions (
+      id                 SERIAL PRIMARY KEY,
+      created_at         TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      status             TEXT        NOT NULL DEFAULT 'new',
+      contractor_type    TEXT        NOT NULL,
+      organization_name  TEXT        NOT NULL,
+      unp                TEXT        NOT NULL,
+      contact_name       TEXT        NOT NULL,
+      contact_position   TEXT        NOT NULL,
+      email              TEXT        NOT NULL,
+      request_type       TEXT        NOT NULL,
+      message            TEXT        NOT NULL
+    )
+  `
   tableReady = true
 }

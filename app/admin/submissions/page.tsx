@@ -14,7 +14,7 @@ export default async function SubmissionsPage() {
   if (!session) redirect("/admin/login")
 
   // Читаем заявки на сервере — SSR, данные приходят вместе с HTML
-  const submissions = readSubmissions()
+  const submissions = await readSubmissions()
 
   return (
     <AdminShell username={session.username} title="Заявки">
